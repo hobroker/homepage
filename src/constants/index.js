@@ -1,17 +1,19 @@
 import {
+  GithubIcon,
+  YoutubeIcon,
+  LinkedinIcon,
   FacebookIcon,
   TwitterIcon,
-  LinkedinIcon,
-  InstagramIcon,
-  YoutubeIcon
+  InstagramIcon
 } from '../assets';
 
 export const SITES = {
+  GITHUB: 'github',
+  YOUTUBE: 'youtube',
+  LINKEDIN: 'linkedin',
   FACEBOOK: 'facebook',
   TWITTER: 'twitter',
-  LINKEDIN: 'linkedin',
   INSTAGRAM: 'instagram',
-  YOUTUBE: 'youtube'
 };
 
 export const CONFIG = {
@@ -39,5 +41,10 @@ export const CONFIG = {
     href: 'https://youtube.com/channel/UCybxyZcTV3hkJ12o4wNySOQ',
     color: '#ff0000',
     icon: YoutubeIcon
+  },
+  [SITES.GITHUB]: {
+    href: 'https://github.com/hobroker',
+    color: '#181717',
+    icon: GithubIcon
   }
 };

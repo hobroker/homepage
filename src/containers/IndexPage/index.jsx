@@ -5,6 +5,12 @@ import { CONFIG, SITES } from '../../constants';
 
 const pageStyle = css`
   display: flex;
+  @media only screen and (max-width: 768px) {
+    flex-direction: column;
+  }
+  @media only screen and (max-width: 2000px) {
+    flex-flow: row wrap;
+  }
 `;
 
 const IndexPage = () => (
@@ -19,10 +25,8 @@ const IndexPage = () => (
         <Box
           key={key}
           href={href}
-          style={{
-            backgroundColor: color,
-            // backgroundImage: `url(${icon})`
-          }}
+          aria-label={key}
+          color={color}
         >
           {icon()}
         </Box>
