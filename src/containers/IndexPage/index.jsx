@@ -19,11 +19,14 @@ const IndexPage = () => (
       const {
         color,
         href,
+        orders,
         icon
       } = CONFIG[key];
       return (
         <Box
           key={key}
+          name={key}
+          orders={orders}
           href={href}
           aria-label={key}
           color={color}

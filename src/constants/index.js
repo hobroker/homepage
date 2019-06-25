@@ -25,7 +25,10 @@ export const CONFIG = {
   [SITES.TWITTER]: {
     href: 'http://twitter.com/hobroker',
     color: '#1DA1F2',
-    icon: TwitterIcon
+    icon: TwitterIcon,
+    orders: [
+      [2000, 1]
+    ]
   },
   [SITES.LINKEDIN]: {
     href: 'https://linkedin.com/in/hobroker',
@@ -35,16 +38,25 @@ export const CONFIG = {
   [SITES.INSTAGRAM]: {
     href: 'https://instagram.com/hobroker',
     color: '#405DE6',
-    icon: InstagramIcon
+    icon: InstagramIcon,
+    orders: [
+      [2000, 7]
+    ]
   },
   [SITES.YOUTUBE]: {
     href: 'https://youtube.com/channel/UCybxyZcTV3hkJ12o4wNySOQ',
     color: '#ff0000',
-    icon: YoutubeIcon
+    icon: YoutubeIcon,
+    orders: [
+      [2000, 6]
+    ]
   },
   [SITES.GITHUB]: {
     href: 'https://github.com/hobroker',
     color: '#181717',
-    icon: GithubIcon
+    icon: GithubIcon,
+    orders: [
+      [2000, 2]
+    ]
   }
 };

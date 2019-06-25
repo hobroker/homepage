@@ -1,14 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { css } from 'emotion';
+import { css, cx } from 'emotion';
+
+const makeOrderClassName = (key, [[maxWidth, order]]) => css`
+  &[aria-label="${key}"] {
+    @media only screen and (max-width: ${maxWidth}px) {
+      order: ${order};
+    }
+  }
+`;
 
 const boxStyle = css`
   will-change: transform;
-  //flex: 1;
   text-decoration: none;
   color: initial;
   transition: transform .3s ease;
   position: relative;
+  order: 5;
   &:hover {
     transform: scale(1.2);
     z-index: 2;
@@ -19,9 +27,6 @@ const boxStyle = css`
   @media only screen and (max-width: 2000px) {
     height: 50%;
     width: calc(100% / 3);
-    &[aria-label="twitter"] {
-      order: 2;
-    }
   }
   svg {
     will-change: transform;
@@ -45,13 +50,13 @@ const boxStyle = css`
   }
 `;
 
-const Box = ({ color, children, ...props }) => (
+const Box = ({ color, children, orders, name, ...props }) => (
   <a
     {...props}
     style={{
-      backgroundColor: color,
+      backgroundColor: color
     }}
-    className={boxStyle}
+    className={cx(boxStyle, orders && makeOrderClassName(name, orders))}
     target="_blank"
     rel="noreferrer noopener"
   >
@@ -61,11 +66,14 @@ const Box = ({ color, children, ...props }) => (
 
 Box.propTypes = {
   color: PropTypes.string,
-  children: PropTypes.node.isRequired
+  orders: PropTypes.arrayOf(PropTypes.any),
+  children: PropTypes.node.isRequired,
+  name: PropTypes.string.isRequired
 };
 
 Box.defaultProps = {
-  color: 'magenta'
+  color: 'magenta',
+  orders: null
 };
 
 export default Box;
